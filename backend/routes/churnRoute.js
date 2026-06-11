@@ -8,7 +8,7 @@ router.post("/predict", async (req, res) => {
     try {
 
         const response = await axios.post(
-            "http://127.0.0.1:5000/predict",
+            "http://localhost:5000/predict",
             req.body
         );
 
@@ -16,16 +16,8 @@ router.post("/predict", async (req, res) => {
 
     } catch (error) {
 
-        console.log("FULL ERROR:");
-        console.log(error.message);
-
-        if (error.response) {
-            console.log(error.response.data);
-        }
-
         res.status(500).json({
-            error: "Prediction Failed",
-            details: error.message
+            error: "Prediction Failed"
         });
     }
 });
