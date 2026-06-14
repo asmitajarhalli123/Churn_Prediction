@@ -13,41 +13,54 @@ def predict():
 
     data = request.json
 
-    # Convert values
+    # Convert text to number
     gender = 1 if data["gender"] == "male" else 0
     senior = 1 if data["senior"] == "yes" else 0
     partner = 1 if data["partner"] == "yes" else 0
     dependents = 1 if data["dependents"] == "yes" else 0
     phone = 1 if data["phone"] == "yes" else 0
 
-    customer = np.array([[
+    # Convert string to float
+    tenure = float(data["tenure"])
+    monthly = float(data["monthlyCharges"])
+    total = float(data["totalCharges"])
 
+    # Create customer array
+    customer = np.array([[
         gender,
         senior,
         partner,
         dependents,
-        data["tenure"],
+        tenure,
         phone,
-        data["monthlyCharges"],
-        data["totalCharges"]
+        monthly,
+        total
+    ]], dtype=np.float32)
 
-    ]])
-
+    # Predict
     prediction = model.predict(customer)
 
     probability = float(prediction[0][0])
 
-    result = (
-        "Customer Will Churn"
-        if probability > 0.5
-        else "Customer Will Stay"
+    # Result
+    if probability > 0.5:
+        result = "Customer Will Churn"
+    else:
+        result = "Customer Will Stay"
+
+    confidence = round(
+        probability * 100,
+        2
     )
 
     return jsonify({
         "prediction": result,
-        "probability": probability
+        "confidence": confidence
     })
 
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(
+        port=5000,
+        debug=True
+    )
