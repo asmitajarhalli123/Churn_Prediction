@@ -73,7 +73,7 @@ router.post(
 
             res.status(500).json({
                 error:
-                    "Prediction Failed"
+                    "Prediction Failed . Please Try Again."
             });
         }
     }
