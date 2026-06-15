@@ -34,7 +34,7 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .homepage h3{
@@ -59,7 +59,7 @@ body {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow:
         0 0 10px rgba(66, 169, 67, 0.2),
         inset 0 0 12px rgba(51, 229, 69, 0.08);
@@ -82,7 +82,7 @@ body {
   -webkit-text-fill-color: transparent;
   margin-left: 35%;
   letter-spacing: 0.1px;
- 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .image{
@@ -101,7 +101,9 @@ body {
     margin-left: 30%;
     color:white;
      line-height: 0.1;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .process{
   align-items: center;
@@ -116,7 +118,111 @@ body {
      line-height: 0.1;
      word-spacing: 2.5px;
      color: rgb(26, 25, 25);
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.process .process-description{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   opcacity: 0.2;
+   color:black;
+   
+}
+
+
+
+
+.steps-section{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card */
+.card{
+    position: relative;
+    width: 240px;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 22px;
+  margin-top: 40px;
+    background: rgba(8, 18, 12, 0.95);
+
+    border: 1px solid rgba(152, 205, 0, 0.25);
+
+    box-shadow: 
+        0 0 12px rgba(152,205,0,0.08);
+
+    transition: 0.4s ease;
+}
+
+/* Hover Effect */
+.card:hover{
+    transform: translateY(-8px);
+
+    border-color: rgba(152,205,0,0.6);
+
+    box-shadow:
+        0 0 22px rgba(152,205,0,0.18);
+}
+
+/* Number */
+.card h1{
+    font-size: 58px;
+    font-weight: bold;
+    color: #98CD00;
+    margin-bottom: 15px;
+}
+
+/* Heading */
+.card h3{
+    font-size: 19px;
+    margin-bottom: 14px;
+    color: white;
+}
+
+/* Description */
+.card p{
+    font-size: 17px;
+    line-height: 1.7;
+    color: #a5b4a0;
+}
+
+/* Arrow Button */
+.arrow-btn{
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 26px;
+    color: #98CD00;
+
+    backdrop-filter: blur(8px);
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .steps-section{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+  
 .container {
   width: 400px;
   margin: 40px auto;

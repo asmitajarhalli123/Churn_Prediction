@@ -79,6 +79,39 @@ const handleSubmit = async (e) => {
     <div className="process">
       <h1 className="process-title">How Churn!Q works</h1>
       <p className="process-description">Three simple steps from raw customer data to actionable retention insights powered by Neuron networks.</p>
+
+      <section class="steps-section">
+
+    <div class="card">
+        <h1>01</h1>
+        <h3>Enter customer data</h3>
+        <p>
+            Fill in the customer profile — contract details,
+            usage patterns, tenure, and billing info.
+        </p>
+    </div>
+
+    <div class="card middle-card">
+        <h1>02</h1>
+        <h3>Model analyzes risk</h3>
+        <p>
+            Our Neuron Network model evaluates 18+
+            behavioural and demographic signals simultaneously.
+        </p>
+
+        
+    </div>
+
+    <div class="card">
+        <h1>03</h1>
+        <h3>Get actionable insight</h3>
+        <p>
+            Receive a churn probability score with key
+            risk factors and recommended retention actions.
+        </p>
+    </div>
+
+</section>
     </div>
 {/* 
     <div className="image" >
