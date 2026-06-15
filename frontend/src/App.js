@@ -4,6 +4,18 @@ import "./App.css";
 
 function App() {
 
+  const initialFormState = {
+  
+      gender: "",
+      senior: "",
+      partner: "",
+      dependents: "",
+      tenure: "",
+      phone: "",
+      monthlyCharges: "",
+      totalCharges: ""
+};
+
   const [formData, setFormData] =
     useState({
 
@@ -64,6 +76,17 @@ const handleSubmit = async (e) => {
     alert("Prediction Failed");
   }
 };
+
+
+// Refresh / Clear
+  const handleRefresh = () => {
+    setFormData(initialFormState);
+
+    setResult("");
+    setConfidence("");
+  };
+
+
   return (
     <>
 
@@ -113,186 +136,148 @@ const handleSubmit = async (e) => {
 
 </section>
     </div>
-{/* 
-    <div className="image" >
 
+    {/* <div className="image" >
+hello
     </div> */}
        
 
     <div className="container">
+
+      <div className="head">
+        <div className="brain"></div>
+    
+      </div>
+
+      <div className="text">
+
       <h1 className="title">
-
         Customer Churn Prediction
-
+        
       </h1>
+      <p>Fill in all the details to detect ai powered customer churn prediction and insights.</p>
+</div>
 
-      <form
-        onSubmit={handleSubmit}
-      >
+     <form onSubmit={handleSubmit} className="churn-form">
 
-        <div className="form-group">
+  <div className="form-grid">
 
-          <select
-            name="gender"
-            onChange={handleChange}
-            required
-          >
+    {/* LEFT SIDE */}
+    <div className="left-section">
 
-            <option value="">
-              Select Gender
-            </option>
+      <div className="form-group">
+        <select
+          name="gender"
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
 
-            <option value="male">
-              Male
-            </option>
+      <div className="form-group">
+        <select
+          name="senior"
+          onChange={handleChange}
+          required
+        >
+          <option value="">
+            Senior Citizen
+          </option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
 
-            <option value="female">
-              Female
-            </option>
+      <div className="form-group">
+        <select
+          name="partner"
+          onChange={handleChange}
+          required
+        >
+          <option value="">
+            Partner
+          </option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
 
-          </select>
+      <div className="form-group">
+        <select
+          name="dependents"
+          onChange={handleChange}
+          required
+        >
+          <option value="">
+            Dependents
+          </option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
 
-        </div>
+    </div>
 
-        <div className="form-group">
+    {/* RIGHT SIDE */}
+    <div className="right-section">
 
-          <select
-            name="senior"
-            onChange={handleChange}
-            required
-          >
+      <div className="form-group">
+        <input
+          type="number"
+          name="tenure"
+          placeholder="Tenure (months)"
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-            <option value="">
-              Senior Citizen
-            </option>
+      <div className="form-group">
+        <select
+          name="phone"
+          onChange={handleChange}
+          required
+        >
+          <option value="">
+            Phone Service
+          </option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
 
-            <option value="yes">
-              Yes
-            </option>
+      <div className="form-group">
+        <input
+          type="number"
+          name="monthlyCharges"
+          placeholder="Monthly Charges"
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-            <option value="no">
-              No
-            </option>
+      <div className="form-group">
+        <input
+          type="number"
+          name="totalCharges"
+          placeholder="Total Charges"
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-          </select>
+    </div>
 
-        </div>
+  </div>
 
-        <div className="form-group">
+  <button type="submit">
+    Run Prediction
+  </button>
 
-          <select
-            name="partner"
-            onChange={handleChange}
-            required
-          >
+</form>
 
-            <option value="">
-              Partner
-            </option>
-
-            <option value="yes">
-              Yes
-            </option>
-
-            <option value="no">
-              No
-            </option>
-
-          </select>
-
-        </div>
-
-        <div className="form-group">
-
-          <select
-            name="dependents"
-            onChange={handleChange}
-            required
-          >
-
-            <option value="">
-              Dependents
-            </option>
-
-            <option value="yes">
-              Yes
-            </option>
-
-            <option value="no">
-              No
-            </option>
-
-          </select>
-
-        </div>
-
-        <div className="form-group">
-
-          <input
-            type="number"
-            name="tenure"
-            placeholder="Tenure (months)"
-            onChange={handleChange}
-            required
-          />
-
-        </div>
-
-        <div className="form-group">
-
-          <select
-            name="phone"
-            onChange={handleChange}
-            required
-          >
-
-            <option value="">
-              Phone Service
-            </option>
-
-            <option value="yes">
-              Yes
-            </option>
-
-            <option value="no">
-              No
-            </option>
-
-          </select>
-
-        </div>
-
-        <div className="form-group">
-
-          <input
-            type="number"
-            name="monthlyCharges"
-            placeholder="Monthly Charges"
-            onChange={handleChange}
-            required
-          />
-
-        </div>
-
-        <div className="form-group">
-
-          <input
-            type="number"
-            name="totalCharges"
-            placeholder="Total Charges"
-            onChange={handleChange}
-            required
-          />
-
-        </div>
-
-        <button type="submit">
-
-          Predict
-
-        </button>
-
-      </form>
 
       {
         result && (
